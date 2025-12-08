@@ -34,7 +34,7 @@ class Program
             Console.WriteLine("\n----------------------------------------\n");
         }
 
-        Console.WriteLine("\n=== VIDEO LIST & COMMENTS ===\n");
+        Console.WriteLine("\nVIDEOS AND COMMENTS\n");
 
         int index = 1;
 
