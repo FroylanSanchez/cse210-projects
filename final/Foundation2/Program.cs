@@ -22,12 +22,12 @@ class Program
             order2.AddProduct(CreateProductFromInput());
         }
 
-        Console.WriteLine("\n=== ORDER 1 ===");
+        Console.WriteLine("\nORDER 1:");
         Console.WriteLine(order1.GetPackingLabel());
         Console.WriteLine($"Total Cost: ${order1.GetTotalCost()}");
         Console.WriteLine(order1.GetShippingLabel());
 
-        Console.WriteLine("\n=== ORDER 2 ===");
+        Console.WriteLine("\nORDER 2:");
         Console.WriteLine(order2.GetPackingLabel());
         Console.WriteLine($"Total Cost: ${order2.GetTotalCost()}");
         Console.WriteLine(order2.GetShippingLabel());
