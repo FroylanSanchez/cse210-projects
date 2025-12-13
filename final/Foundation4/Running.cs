@@ -14,30 +14,16 @@ class Running : Activity
 
     public override double GetSpeed()
     {
-        if (_distance != 0)
-        {
-            return _distance / _minutes * 60;
-        }
-        else
-        {
-            return 0.0;
-        }
+        return _distance != 0 ? _distance / _minutes * 60 : 0.0;
     }
 
     public override double GetPace()
     {
-        if (_distance != 0)
-        {
-            return _minutes / _distance;
-        }
-        else
-        {
-            return 0.0;
-        }
+        return _distance != 0 ? _minutes / _distance : 0.0;
     }
 
     public override string GetSummary()
     {
-        return $"{_date} Running ({_minutes} min) - Distance {_distance} miles, Speed {(GetSpeed()).ToString("0.0")} mph, Pace: {(GetPace() * 60).ToString("0.0")} min per mile";
+        return $"{_date} Running ({_minutes} min) - Distance {_distance} miles, Speed {GetSpeed():0.0} mph, Pace: {GetPace():0.0} min per mile";
     }
 }

@@ -6,15 +6,15 @@ class Program
     {
         List<Activity> activities = new List<Activity>();
 
-        Running running = new Running("03 Nov 2022", 30, 3.0);
-        Cycling cycling = new Cycling("03 Nov 2022", 10, 10.0);
-        Swimming swimming = new Swimming("03 Nov 2022", 20, 200);
+        Activity running = new Running("December 3, 2025", 35, 4.2);
+        Activity cycling = new Cycling("December 7, 2025", 50, 18.5);
+        Activity swimming = new Swimming("December 10, 2025", 40, 48);
 
         activities.Add(running);
         activities.Add(cycling);
         activities.Add(swimming);
 
-        foreach (var activity in activities)
+        foreach (Activity activity in activities)
         {
             Console.WriteLine(activity.GetSummary());
         }
