@@ -89,7 +89,7 @@ public class GoalManager
         
         for (int i = 1; i < lines.Length; i++)
         {
-            string[] parts = lines[i].Split(':');
+            string[] parts = lines[i].Split(':', 2);
             string goalType = parts[0];
             string[] data = parts[1].Split(',');
 
