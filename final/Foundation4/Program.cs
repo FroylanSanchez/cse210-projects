@@ -1,22 +1,31 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+namespace Foundation4
 {
-    static void Main(string[] args)
+    public class Program
     {
-        List<Activity> activities = new List<Activity>();
-
-        Activity running = new Running("December 3, 2025", 35, 4.2);
-        Activity cycling = new Cycling("December 7, 2025", 50, 18.5);
-        Activity swimming = new Swimming("December 10, 2025", 40, 48);
-
-        activities.Add(running);
-        activities.Add(cycling);
-        activities.Add(swimming);
-
-        foreach (Activity activity in activities)
+        static void Main(string[] args)
         {
-            Console.WriteLine(activity.GetSummary());
+            Run();
+        }
+
+        public static void Run()
+        {
+            List<Activity> activities = new List<Activity>();
+
+            Activity running = new Running("December 3, 2025", 35, 4.2);
+            Activity cycling = new Cycling("December 7, 2025", 50, 18.5);
+            Activity swimming = new Swimming("December 10, 2025", 40, 48);
+
+            activities.Add(running);
+            activities.Add(cycling);
+            activities.Add(swimming);
+
+            foreach (Activity activity in activities)
+            {
+                Console.WriteLine(activity.GetSummary());
+            }
         }
     }
 }

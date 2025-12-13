@@ -1,59 +1,66 @@
-class Program
+using System;
+using System.Collections.Generic;
+
+namespace Foundation1
 {
-    static void Main(string[] args)
+    public class Program
     {
-        List<Video> videos = new List<Video>();
-
-        for (int i = 1; i <= 3; i++)
+        static void Main(string[] args)
         {
-            Video video = new Video();
-
-            Console.Write($"Enter the title for video {i}: ");
-            video.SetTitle(Console.ReadLine());
-
-            Console.Write($"Enter the author for video {i}: ");
-            video.SetAuthor(Console.ReadLine());
-
-            Console.Write($"Enter the length (in minutes) for video {i}: ");
-            video.SetLength(double.Parse(Console.ReadLine()));
-
-            Console.WriteLine("\nNow enter 3 comments for this video:");
-
-            for (int c = 1; c <= 3; c++)
-            {
-                Console.Write($"Name of commenter #{c}: ");
-                string person = Console.ReadLine();
-
-                Console.Write($"Comment #{c}: ");
-                string text = Console.ReadLine();
-
-                video.AddComment(new Comment(person, text));
-            }
-
-            videos.Add(video);
-            Console.WriteLine("\n----------------------------------------\n");
+            Run();
         }
 
-        Console.WriteLine("\nVIDEOS AND COMMENTS\n");
-
-        int index = 1;
-
-        foreach (Video v in videos)
+        public static void Run()
         {
-            Console.WriteLine($"Video {index}:");
-            Console.WriteLine($"Title: {v.GetTitle()}");
-            Console.WriteLine($"Author: {v.GetAuthor()}");
-            Console.WriteLine($"Length: {v.GetLength()} minutes");
-            Console.WriteLine($"Number of comments: {v.GetCommentCount()}");
+            List<Video> videos = new List<Video>();
 
-            Console.WriteLine("Comments:");
-            foreach (Comment c in v.GetComments())
+            Video v1 = new Video();
+            v1.SetTitle("Introduction to C#");
+            v1.SetAuthor("John Doe");
+            v1.SetLength(12.5);
+            v1.AddComment(new Comment("Alice", "Very helpful video"));
+            v1.AddComment(new Comment("Bob", "Clear explanation"));
+            v1.AddComment(new Comment("Carlos", "Great examples"));
+
+            Video v2 = new Video();
+            v2.SetTitle("Object-Oriented Programming");
+            v2.SetAuthor("Jane Smith");
+            v2.SetLength(18.2);
+            v2.AddComment(new Comment("Maria", "Loved the breakdown"));
+            v2.AddComment(new Comment("Luis", "Easy to understand"));
+            v2.AddComment(new Comment("Sofia", "Well explained"));
+
+            Video v3 = new Video();
+            v3.SetTitle("Abstraction in Practice");
+            v3.SetAuthor("Emily Johnson");
+            v3.SetLength(15.0);
+            v3.AddComment(new Comment("Daniel", "Good real-world examples"));
+            v3.AddComment(new Comment("Ana", "Helped me a lot"));
+            v3.AddComment(new Comment("Kevin", "Nice pacing"));
+
+            videos.Add(v1);
+            videos.Add(v2);
+            videos.Add(v3);
+
+            int index = 1;
+
+            foreach (Video v in videos)
             {
-                Console.WriteLine($"{c.GetName()} says: {c.GetContent()}");
-            }
+                Console.WriteLine($"Video {index}:");
+                Console.WriteLine($"Title: {v.GetTitle()}");
+                Console.WriteLine($"Author: {v.GetAuthor()}");
+                Console.WriteLine($"Length: {v.GetLength()} minutes");
+                Console.WriteLine($"Number of comments: {v.GetCommentCount()}");
+                Console.WriteLine("Comments:");
 
-            Console.WriteLine("\n----------------------------------------\n");
-            index++;
+                foreach (Comment c in v.GetComments())
+                {
+                    Console.WriteLine($"{c.GetName()} says: {c.GetContent()}");
+                }
+
+                Console.WriteLine("\n----------------------------------------\n");
+                index++;
+            }
         }
     }
 }

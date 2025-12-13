@@ -1,71 +1,45 @@
 using System;
 
-class Program
+namespace Foundation2
 {
-    static void Main(string[] args)
+    public class Program
     {
-        Console.WriteLine("Creating Order 1...");
-        Customer c1 = CreateCustomerFromInput();
-        Order order1 = new Order(c1);
-
-        for (int i = 0; i < 3; i++)
+        static void Main(string[] args)
         {
-            order1.AddProduct(CreateProductFromInput());
+            Run();
         }
 
-        Console.WriteLine("\nCreating Order 2...");
-        Customer c2 = CreateCustomerFromInput();
-        Order order2 = new Order(c2);
-
-        for (int i = 0; i < 3; i++)
+        public static void Run()
         {
-            order2.AddProduct(CreateProductFromInput());
+            Customer c1 = new Customer(
+                "Froylan Sanchez",
+                new Address("140 W 2nd S", "Rexburg", "ID", "USA")
+            );
+
+            Order order1 = new Order(c1);
+            order1.AddProduct(new Product("Phone", 1231, 1000, 1));
+            order1.AddProduct(new Product("Headphones", 242, 1313, 2));
+            order1.AddProduct(new Product("Charger", 23, 11, 1));
+
+            Customer c2 = new Customer(
+                "Luz Sanchez",
+                new Address("Av. Central 45", "Ecatepec de Morelos", "Mexico", "Mexico")
+            );
+
+            Order order2 = new Order(c2);
+            order2.AddProduct(new Product("Notebook", 1, 5, 4));
+            order2.AddProduct(new Product("Pen Pack", 2, 3, 2));
+            order2.AddProduct(new Product("Backpack", 4, 25, 1));
+
+            Console.WriteLine("ORDER 1:");
+            Console.WriteLine(order1.GetPackingLabel());
+            Console.WriteLine($"Total Cost: ${order1.GetTotalCost()}");
+            Console.WriteLine(order1.GetShippingLabel());
+
+            Console.WriteLine("\nORDER 2:");
+            Console.WriteLine(order2.GetPackingLabel());
+            Console.WriteLine($"Total Cost: ${order2.GetTotalCost()}");
+            Console.WriteLine(order2.GetShippingLabel());
         }
-
-        Console.WriteLine("\nORDER 1:");
-        Console.WriteLine(order1.GetPackingLabel());
-        Console.WriteLine($"Total Cost: ${order1.GetTotalCost()}");
-        Console.WriteLine(order1.GetShippingLabel());
-
-        Console.WriteLine("\nORDER 2:");
-        Console.WriteLine(order2.GetPackingLabel());
-        Console.WriteLine($"Total Cost: ${order2.GetTotalCost()}");
-        Console.WriteLine(order2.GetShippingLabel());
-    }
-
-    static Customer CreateCustomerFromInput()
-    {
-        Console.Write("Customer name: ");
-        string name = Console.ReadLine();
-
-        Console.WriteLine("Address:");
-        Console.Write("Street: ");
-        string street = Console.ReadLine();
-        Console.Write("City: ");
-        string city = Console.ReadLine();
-        Console.Write("State/Province: ");
-        string state = Console.ReadLine();
-        Console.Write("Country: ");
-        string country = Console.ReadLine();
-
-        Address address = new Address(street, city, state, country);
-        return new Customer(name, address);
-    }
-
-    static Product CreateProductFromInput()
-    {
-        Console.Write("Product name: ");
-        string name = Console.ReadLine();
-
-        Console.Write("Product ID: ");
-        int id = int.Parse(Console.ReadLine());
-
-        Console.Write("Price: ");
-        double price = double.Parse(Console.ReadLine());
-
-        Console.Write("Quantity: ");
-        int qty = int.Parse(Console.ReadLine());
-
-        return new Product(name, id, price, qty);
     }
 }

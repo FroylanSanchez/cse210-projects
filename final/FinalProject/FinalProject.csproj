@@ -1,11 +1,17 @@
-
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Foundation1\Foundation1.csproj" />
+    <ProjectReference Include="..\Foundation2\Foundation2.csproj" />
+    <ProjectReference Include="..\Foundation3\Foundation3.csproj" />
+    <ProjectReference Include="..\Foundation4\Foundation4.csproj" />
+  </ItemGroup>
 
 </Project>

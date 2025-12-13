@@ -1,58 +1,66 @@
 using System;
 
-class Program
+namespace Foundation3
 {
-    static void Main(string[] args)
+    public class Program
     {
-        Address address = new Address(
-            "Tepeyollotl Mz 2 Lt 8",
-            "Ecatepec de Morelos",
-            "Mexico",
-            "Mexico"
-        );
+        static void Main(string[] args)
+        {
+            Run();
+        }
 
-        Event lecture = new Lecture(
-            "Faith, Education, and Lifelong Learning",
-            "A discussion on how faith in Jesus Christ and education work together to prepare individuals for lifelong service, leadership, and personal growth.",
-            "April 15, 2024",
-            "7:00 – 8:30 P.M.",
-            address,
-            "Elder Dieter F. Uchtdorf",
-            300,
-            185
-        );
+        public static void Run()
+        {
+            Address address = new Address(
+                "Tepeyollotl Mz 2 Lt 8",
+                "Ecatepec de Morelos",
+                "Mexico",
+                "Mexico"
+            );
 
-        Event reception = new Reception(
-            "Shantell and Froylan's Wedding",
-            "Wedding celebration at the Mesa Ward church building",
-            "April 11",
-            "4:30 P.M.",
-            address,
-            "san24112@byui.edu"
-        );
+            Event lecture = new Lecture(
+                "Faith, Education, and Lifelong Learning",
+                "A discussion on how faith in Jesus Christ and education work together to prepare individuals for lifelong service, leadership, and personal growth.",
+                "April 15, 2024",
+                "7:00 - 8:30 P.M.",
+                address,
+                "Elder Dieter F. Uchtdorf",
+                300,
+                185
+            );
 
-        Event outdoor = new Outdoor(
-            "Soccer Championship",
-            "Stake Soccer Championship",
-            "March 25",
-            "5:00 P.M.",
-            address,
-            "Sunny"
-        );
+            Event reception = new Reception(
+                "Shantell and Froylan's Wedding",
+                "Wedding celebration at the Mesa Ward church building",
+                "April 11",
+                "4:30 P.M.",
+                address,
+                "san24112@byui.edu"
+            );
 
-        DisplayEvent(lecture);
-        DisplayEvent(reception);
-        DisplayEvent(outdoor);
-    }
+            Event outdoor = new Outdoor(
+                "Soccer Championship",
+                "Stake Soccer Championship",
+                "March 25",
+                "5:00 P.M.",
+                address,
+                "Sunny"
+            );
 
-    static void DisplayEvent(Event e)
-    {
-        Console.WriteLine("FULL DETAILS");
-        Console.WriteLine(e.GetFullDetails());
-        Console.WriteLine("\nSTANDARD DETAILS");
-        Console.WriteLine(e.GetStandardDetails());
-        Console.WriteLine("\nSHORT DETAILS");
-        Console.WriteLine(e.GetShortDetails());
-        Console.WriteLine("\n---------------------------\n");
+            DisplayEvent(lecture);
+            DisplayEvent(reception);
+            DisplayEvent(outdoor);
+        }
+
+        static void DisplayEvent(Event e)
+        {
+            Console.WriteLine("FULL DETAILS");
+            Console.WriteLine(e.GetFullDetails());
+            Console.WriteLine("\nSTANDARD DETAILS");
+            Console.WriteLine(e.GetStandardDetails());
+            Console.WriteLine("\nSHORT DETAILS");
+            Console.WriteLine(e.GetShortDetails());
+            Console.WriteLine("\n---------------------------\n");
+        }
     }
 }
